@@ -1,0 +1,8 @@
+[
+{
+  "name": "history",
+  "children": [
+  {
+    "base": "history.vue"
+  }]
+}]
