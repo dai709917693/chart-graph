@@ -1,5 +1,13 @@
 [
 {
+  "name": "GETHISTORY",
   "url": "getHistory.dox",
-  "method": "get"
+  "method": "get",
+  "vuex": "history"
+},
+{
+  "name": "EDITHISTORY",
+  "url": "editHistory.dox",
+  "method": "post",
+  "vuex": "history"
 }]

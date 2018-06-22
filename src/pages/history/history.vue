@@ -1,10 +1,10 @@
 <template>
-  <Graph :data="data" :links="links" :categories="categories"></Graph>
+  <Graph :data="doneUnits" :links="doneLinks" :categories="categories"></Graph>
 </template>
 <script>
 import { ObjForEach } from "@/modules/objectProcessing"
 import category from "@/ajax/config/category"
-import { GETHISTORY_AJAX } from "@/ajax"
+import { mapActions, mapState,mapGetters } from 'vuex'
 import { Graph } from "@/ui/Chart"
 export default {
   components: {
@@ -12,28 +12,25 @@ export default {
   },
   data() {
     return {
-      data: [],
-      links: [],
       categories: []
     }
   },
+  computed: {
+    ...mapGetters({
+      doneUnits:"history/doneUnits",
+      doneLinks:"history/doneLinks"
+    })
+  },
   created() {
-    GETHISTORY_AJAX().then((res) => {
-      this.data = res.data.map((v) => {
-        return {
-          "id": v.id,
-          "name": v.name,
-          "symbolSize": 32,
-          "category": category[v.category],
-          "draggable": true
-        }
-      })
-      let cateArr = []
-      ObjForEach(category, (v, k) => {
-        cateArr.push({ name: v })
-      })
-      this.categories = cateArr
-      this.links = res.links
+    let cateArr = []
+    ObjForEach(category, (v, k) => {
+      cateArr.push({ name: v })
+    })
+    this.categories = cateArr
+  },
+  methods: {
+    ...mapActions({
+      GETHISTORY: "history/GETHISTORY"
     })
   }
 }

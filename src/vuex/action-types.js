@@ -1,1 +1,2 @@
-export const GET = "GET"
+export const GETHISTORY = "GETHISTORY" 
+export const EDITHISTORY = "EDITHISTORY" 

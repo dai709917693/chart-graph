@@ -6,3 +6,10 @@ export const GETHISTORY_AJAX = (params) => {
     	params
     })
 };
+export const EDITHISTORY_AJAX = (params) => {
+	return request({
+    	url:'editHistory.dox',
+    	method:'post',
+    	data:params
+    })
+};
