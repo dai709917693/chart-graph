@@ -41,6 +41,7 @@ export default {
   watch: {
     data(v) {
       this.option.series[0].data = v
+      console.log(this.option)
     },
     links(v) {
       this.option.series[0].links = v
@@ -71,6 +72,7 @@ export default {
         },
         selectedMode: 'true',
         bottom: 20,
+        data: this.categories,
       }],
       toolbox: {
         show: true,
@@ -92,10 +94,13 @@ export default {
       series: [{
         name: '历史',
         type: 'graph',
-        layout: 'force',
+        layout: 'circular',
+        circular: {
+          rotateLabel: true
+        },
         force: {
-          repulsion: 500,
-          edgeLength: 120
+          repulsion: 1000,
+          edgeLength: [120, 0]
         },
         data: this.data,
         links: this.links,
@@ -105,13 +110,13 @@ export default {
         label: {
           normal: {
             show: true,
-            position: 'top',
+            position: 'right',
           }
         },
         lineStyle: {
           normal: {
             color: 'source',
-            curveness: 0,
+            curveness: .3,
             type: "solid"
           }
         }

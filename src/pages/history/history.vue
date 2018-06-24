@@ -24,7 +24,25 @@ export default {
   created() {
     let cateArr = []
     ObjForEach(category, (v, k) => {
-      cateArr.push({ name: v })
+      let symbol="circle";
+        // switch (k) {
+        //   case "0":
+        //     symbol = "circle"
+        //     break;
+        //   case "1":
+        //     symbol = "rect"
+        //     break;
+        //   case "2":
+        //     symbol = "triangle"
+        //     break;
+        //   case "3":
+        //     symbol = "diamond"
+        //     break;
+        //   case "4":
+        //     symbol = "roundRect"
+        //     break;
+        // }
+      cateArr.push({ name: v ,icon:symbol})
     })
     this.categories = cateArr
   },
