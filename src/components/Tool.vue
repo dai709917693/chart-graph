@@ -100,7 +100,7 @@ export default {
     checkTypeRepeat(item) {
       let res = true
       this.target.forEach((v) => {
-        if ((v.category == 1 && item.value == 1 || item.value == 0) || (v.category == 0 && item.value == 0) || (v.category == 4 && item.value == 4)) {
+        if ((v.category == 1 && (item.value == 1 || item.value == 0)) || (v.category == 0 && item.value == 0) || (v.category == 4 && item.value == 4)) {
           res = false
         }
       })
