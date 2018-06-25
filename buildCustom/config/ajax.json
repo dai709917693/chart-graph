@@ -6,8 +6,20 @@
   "vuex": "history"
 },
 {
+  "name": "GETHISTORYTREE",
+  "url": "getHistoryTree.dox",
+  "method": "get",
+  "vuex": "history"
+},
+{
   "name": "EDITHISTORY",
   "url": "editHistory.dox",
+  "method": "post",
+  "vuex": "history"
+},
+{
+  "name": "EDITHISTORYTREE",
+  "url": "editHistoryTree.dox",
   "method": "post",
   "vuex": "history"
 }]

@@ -38,19 +38,13 @@
   </div>
 </template>
 <script>
+import category from "@/ajax/config/category"
 import { mapActions, mapState } from 'vuex'
 import { ObjForEach } from "@/modules/objectProcessing"
 export default {
-  props: {
-    data: {
-      type: Object,
-      default () {
-        return {}
-      }
-    }
-  },
   data() {
     return {
+      data: category,
       source: {
         name: null,
         category: null

@@ -4,5 +4,7 @@
   "children": [
   {
     "base": "history.vue"
+  },{
+    "base": "treeHistory.vue"
   }]
 }]

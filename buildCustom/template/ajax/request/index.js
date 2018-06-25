@@ -12,9 +12,9 @@ module.exports = (data, folderAdd) => {
     } else {
       let urlPath = url.parse(value.url).pathname;
       ajaxName = path.parse(urlPath).name.toLocaleUpperCase();
-    }
-    let method = value.method ? value.method : 'get';
-    reqContent += requestItem(ajaxName, value.url, requestName, method)
+    };
+    !value.method && (value.method = 'get');
+    reqContent += requestItem(ajaxName, value)
   });
   let reqAdd = path.resolve(folderAdd, 'request.js');
   !fs.existsSync(reqAdd) && fs.writeFileSync(reqAdd, reqContent);

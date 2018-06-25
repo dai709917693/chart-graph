@@ -1,2 +1,3 @@
 import Graph from './Graph'
-export { Graph }
+import Tree from './Tree'
+export { Graph, Tree }

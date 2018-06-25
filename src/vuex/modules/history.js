@@ -1,13 +1,14 @@
 import {} from '../mutation-types.js'
-import { GETHISTORY, EDITHISTORY } from '../action-types.js'
-import { GETHISTORY_AJAX, EDITHISTORY_AJAX } from '@/ajax'
+import { GETHISTORY, EDITHISTORY, GETHISTORYTREE , EDITHISTORYTREE } from '../action-types.js'
+import { GETHISTORY_AJAX, EDITHISTORY_AJAX, GETHISTORYTREE_AJAX , EDITHISTORYTREE_AJAX } from '@/ajax'
 import category from "@/ajax/config/category"
 import { ObjForEach } from "@/modules/objectProcessing"
 export default {
   namespaced: true,
   state: {
     units: {},
-    links: []
+    links: [],
+    treeData: []
   },
   getters: {
     doneUnits(state) {
@@ -82,6 +83,14 @@ export default {
 
   },
   actions: {
+    [EDITHISTORYTREE]({ commit, state }, payload){
+      return EDITHISTORYTREE_AJAX(payload)
+    },
+    [GETHISTORYTREE]({ commit, state }, payload) {
+      return GETHISTORYTREE_AJAX(payload).then((res) => {
+        state.treeData = res.data
+      })
+    },
     [GETHISTORY]({ commit, state }, payload) {
       return GETHISTORY_AJAX(payload).then((res) => {
         state.units = res.data;

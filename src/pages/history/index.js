@@ -1,2 +1,3 @@
 import history from './history';
-export { history }
+import TreeHistory from './TreeHistory';
+export { history, TreeHistory }
